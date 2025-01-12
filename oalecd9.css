@@ -455,7 +455,7 @@ idm-gs-blk.expanded>boxblock::before {
 /* 保留原始的IDM标题样式 */
 idm-gs-blk::before {
 	color: #004fce;
-	content: 'IDM 习惯用语';
+	content: '习惯用语';
 	text-decoration: none;
 	font-weight: bolder;
 	font-size: 1.2em;
@@ -682,12 +682,12 @@ unbox[type=wordfinder] xr-gs[xt='wordfinder'] a:link{color:#af1919;}
 unbox[type=wordfinder] xr-gs[xt='collocat'] a:link{color:#0088DD;}*/
 
 
-unbox_wordfinder::before{font-family: 'Optima',"Palatino Linotype", "Book Antiqua", Palatino, Microsoft Yahei, "Microsoft Yahei UI",'oalecd9', Helvetica, "方正黑体", sans-serif;border:1px solid;border-radius:5px;position:relative;font-size:100%;color:#af1919;font-weight:600;content:'WordFinder: 'attr(name);padding:1px 3px;display:inline;}
+unbox_wordfinder::before{font-family: 'Optima',"Palatino Linotype", "Book Antiqua", Palatino, Microsoft Yahei, "Microsoft Yahei UI",'oalecd9', Helvetica, "方正黑体", sans-serif;border:1px solid;border-radius:5px;position:relative;font-size:100%;color:#0088DD;font-weight:600;content:'WordFinder: 'attr(name);padding:1px 3px;display:inline;}
 unbox_wordfinder{display:block;clear:left;padding:0.5em 0;--titled: "a";}
 unbox_wordfinder p{padding:0px;margin:0px;display:inline;}
 unbox_wordfinder p xr-gs{display:inline !important;}
-unbox_wordfinder a:link{color:#a52a2a;font-size:118%}
-unbox_wordfinder xr-gs xr-g xh{color:#a52a2a;}
+unbox_wordfinder a:link{color:#0088DD;font-size:118%}
+unbox_wordfinder xr-gs xr-g xh{color:#0088DD;}
 /*unbox[type=wordfinder] xr-gs[xt='see'] a:link{color:#004fce;}
 unbox[type=wordfinder] xr-gs[xt='wordfinder'] a:link{color:#af1919;}
 unbox[type=wordfinder] xr-gs[xt='collocat'] a:link{color:#0088DD;}*/
@@ -1106,7 +1106,7 @@ unbox[type="more_about"]>*:not(:first-child) {
 
 /* +号和标题样式 */
 unbox[type="synonyms"]::before {
-	content: '⊕ 同义词';
+	content: '⊕ 同义词辨析';
 	position: absolute;
 	left: 0.9em;
 	top: 0.8em;
@@ -1162,7 +1162,7 @@ unbox[type="wordfamily"]::before {
 
 /* 展开状态的标题样式 */
 unbox[type="synonyms"].expanded::before {
-	content: '⊖ 同义词';
+	content: '⊖ 同义词辨析';
 	color: #0088DD;
 }
 
@@ -1196,4 +1196,70 @@ unbox[type].expanded>* {
 unbox[type]> :first-child {
 	display: block;
 	margin-top: 0.5em;
+}
+
+/* pv-gs-blk折叠功能样式 */
+pv-gs-blk {
+    display: block;
+    margin: 0.8em 0;
+    border: 1px solid #0088DD;
+    padding: 0.7em 1.3em 1.0em 1.3em;
+    clear: both;
+}
+
+pv-gs-blk>boxblock {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 5px 5px 25px;
+    position: relative;
+}
+
+pv-gs-blk>pv-gs {
+    display: none;
+}
+
+pv-gs-blk>boxblock::before {
+    content: '⊕';
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    font-size: 14px;
+    line-height: 1;
+    color: #0088DD;
+}
+
+pv-gs-blk.expanded>pv-gs {
+    display: block;
+}
+
+pv-gs-blk.expanded>boxblock::before {
+    content: '⊖';
+    color: #0088DD;
+}
+
+/* 保留原始的动词词组标题样式 */
+pv-gs-blk::before {
+    color: #004fce;
+    content: '动词词组';
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 1.2em;
+    display: block;
+    margin: .20em;
+}
+
+/* 图片容器样式 */
+.pic {
+    float: right;
+    margin-left: 10px;
+    position: relative;
+}
+
+/* 为缩略图和大图添加鼠标指针样式 */
+.pic_thumb, .big_pic {
+    cursor: pointer;
 }

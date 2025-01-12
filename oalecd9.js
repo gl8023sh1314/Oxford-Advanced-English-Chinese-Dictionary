@@ -32,11 +32,10 @@ function toggle_infl(ele) {
 	else{ele.setAttribute("class", "Clicked");}
 }
 
-// 为idm-gs-blk添加折叠功能
-document.addEventListener('DOMContentLoaded', function() {
-	const idmBlocks = document.querySelectorAll('idm-gs-blk');
-	
-	idmBlocks.forEach(block => {
+// 通用的折叠功能函数
+function addToggleFeature(selector) {
+	const blocks = document.querySelectorAll(selector);
+	blocks.forEach(block => {
 		const boxBlock = block.querySelector('boxblock');
 		if (boxBlock) {
 			boxBlock.addEventListener('click', function() {
@@ -44,12 +43,15 @@ document.addEventListener('DOMContentLoaded', function() {
 			});
 		}
 	});
-}); 
+}
 
-// 这是针对unbox折叠功能添加的代码 - 开始
+// DOMContentLoaded事件处理
 document.addEventListener('DOMContentLoaded', function() {
+	// 为idm-gs-blk和pv-gs-blk添加折叠功能
+	addToggleFeature('idm-gs-blk, pv-gs-blk');
+
+	// unbox的折叠功能
 	const unboxElements = document.querySelectorAll('unbox[type="synonyms"], unbox[type="colloc"], unbox[type="grammar"], unbox[type="wordfamily"], unbox[type="more_about"]');
-	
 	unboxElements.forEach(element => {
 		element.addEventListener('click', function(e) {
 			if (e.target === this || e.target === this.querySelector(':before')) {
@@ -58,5 +60,4 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	});
 });
-// 这是针对unbox折叠功能添加的代码 - 结束
 
